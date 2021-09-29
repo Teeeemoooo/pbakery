@@ -1,0 +1,14 @@
+db.products.insert([
+{
+  "name":"Pan de Muerto", 
+  "size":"small"
+}, 
+{
+  "name":"Pan de Muerto", 
+  "size":"medium"
+}, 
+{
+  "name":"Pan de Muerto", 
+  "size":"large"
+} 
+])

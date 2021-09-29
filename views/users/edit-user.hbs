@@ -1,0 +1,85 @@
+<style>
+.MagicScroll[data-mode="carousel"] {
+    background-color:white;
+}
+.MagicScroll[data-mode="cover-flow"] {
+    background-color: white;
+}
+</style>
+
+{{#each errors}}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{text}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{{/each}}
+<div class="col-md-4 mx-auto">
+  <div class="card">
+    <div class="card-header">
+      <h3 style="font-family:Sofia; text-align:center" >User Account</h3>
+    </div>
+    <div class="card-body">
+      <form action="/users/edit-user/{{avatarid}}?_method=PUT" method="POST">
+      <input type="hidden" name="_method" value="PUT">
+        <div class="form-group">
+          <table>
+            <tr>
+              <th>
+                  <input name="useravatar" type="image" src="/img/Avatar_GinMan.png" alt="Avatar's broken image" class="rounded-circle mr-auto d-block logo m-2" style="width: 40px;height:40px" title="Avatar Picture" > 
+              </th>
+              <th>
+                <div class="MagicScroll" data-options="mode: cover-flow; width:150px; height: 50px; arrows: inside" >
+                    <a href="">
+                      <img src="/img/Avatar_GinMan.png" alt="broken gingerman cookie image" style="width: 40px;height:40px" />
+                    </a>   
+                    <a href="">
+                      <img src="/img/Avatar_PaneDiStelle.png" alt="broken pane di stelle cookie image" style="width: 40px;height:40px" />
+                    </a>
+                    <a href="">
+                      <img src="/img/Avatar_Pirouline.png" alt="broken pirouline cookie image" style="width: 40px;height:40px" />
+                    </a>
+                    <a href="">
+                      <img src="/img/Avatar_Raspberry.png" alt="broken raspberry cookie image" style="width: 30px;height:30px" />
+                    </a>
+                    <a href="">  
+                      <img src="/img/Avatar_StarJam.png" alt="broken starjam cookie image" style="width: 50px;height:50px" />
+                    </a>
+                    <a href="">  
+                      <img src="/img/Avatar_Wafer.png" alt="broken wafer cookie image" style="width: 50px;height:50px" />
+                    </a>
+                </div>
+              </th>
+            </tr>
+          </table>
+       
+        </div>
+        <div class="form-group">
+          <input title="Avatar Name" placeholder="Avatar Name" type="text" name="name" class="form-control" value="{{avatarname}}"/> 
+        </div>
+        <div class="form-group">
+          <input title="E-mail - used as User Account in sign in page -THIS FIELD IS CASE SENSITIVE" placeholder="E-mail address" type="email" name="email" class="form-control" value="{{avataremail}}"/> 
+        </div>        
+        <div class="form-group">
+          <input title="Password is only viewed by you in this format. THE DATABASE OWNER STORES AND VIEWS ONLY ENCRYPTED PASSWORDS (see your encrypted password below)" placeholder="Password" type="text" name="password" class="form-control" value="user.password"/> 
+        </div>
+        {{#if (passwordchange)}}
+        <div class="form-group">
+          <input title="You changed your password, please confirm your new password" placeholder="Confirm Password" type="text" name="confirm_password" class="form-control" value=""/> 
+        </div>        
+        {{/if}}
+
+
+        <div class="form-group">
+          <button class="btn btn-primary btn-block" type="submit" style="background:goldenrod">
+            Update
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
